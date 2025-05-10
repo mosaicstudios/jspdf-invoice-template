@@ -4,7 +4,7 @@
   "description": "PDF template created for invoice with optional parameters. Using jsPDF library.",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --config webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run build"
   },

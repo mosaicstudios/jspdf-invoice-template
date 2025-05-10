@@ -6,16 +6,22 @@ module.exports = {
   output: {
     path: path.resolve('dist'),
     filename: 'index.js',
-    library: "jsPDFInvoiceTemplate",
-    libraryTarget: 'umd',
-    globalObject: 'window',
-    publicPath: ''
+    library: {
+      type: 'module', // ✅ Output as ES module
+    },
+    module: true, // ✅ Required for type: 'module'
+    environment: {
+      module: true, // ✅ Required to avoid polyfills for ESM
+    },
+  },
+  experiments: {
+    outputModule: true, // ✅ Enables ESM output
   },
   module: {
     rules: [
       {
         test: /\.js?$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         use: 'babel-loader',
       },
     ],
